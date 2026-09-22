@@ -87,4 +87,87 @@ for pelicula, generos in catalogo.items():
 recomendaciones.sort(key=lambda x:x[1], reverse=True)
 print(recomendaciones)
 
+
+# cuarta parte
+print ("------------------ 4rta parte ---------------------")
 #   COMO SABER TODOS LOS GENEROS DEL CATALOGO
+"""
+#SOLUCION DE UNA IA 
+# Creamos un conjunto vacío donde vamos a guardar todos los géneros
+todos_los_generos = set()
+
+# Recorremos cada película y sus géneros
+for pelicula, generos in catalogo.items():
+
+    # Agregamos los géneros de la película al conjunto
+    # Al ser un conjunto, no se repiten los géneros
+    todos_los_generos = todos_los_generos | generos
+
+# Mostramos todos los géneros encontrados
+print("Todos los géneros de las películas:")
+
+for genero in todos_los_generos: # para que se imprima alfabeticamente 
+    print(genero)
+"""
+#Solución del profe 
+# Creamos un conjunto vacío para guardar todos los géneros
+todos_los_generos = set() #parte hecha para que funcione
+
+# Recorremos los géneros de todas las películas
+for genero in catalogo.values():
+
+    # Unimos los géneros actuales con los que ya teníamos
+    todos_los_generos = todos_los_generos | genero
+
+# Mostramos todos los géneros
+print(todos_los_generos)
+
+
+# Quinta parte
+print ("------------------ 5nta parte ---------------------")
+#mostrar las peliculas por genero 
+
+"""#SOLUCIÓN DE IA
+# Creamos un conjunto vacío para guardar todos los géneros
+todos_los_generos = set()
+
+# Recorremos todas las películas
+for pelicula, generos in catalogo.items():
+
+    # Agregamos los géneros de cada película
+    todos_los_generos = todos_los_generos | generos
+
+
+# Recorremos cada género
+for genero in sorted(todos_los_generos):
+
+    # Mostramos el nombre del género
+    print(f"\n{genero}:")
+
+    # Buscamos todas las películas que tienen ese género
+    for pelicula, generos in catalogo.items():
+
+        # Comprobamos si la película pertenece a ese género
+        if genero in generos:
+
+            # Mostramos la película
+            print(f"- {pelicula}")"""
+
+#Solución profe
+# Recorremos cada género
+for genero in todos_los_generos:
+
+    # Creamos un conjunto vacío para guardar las películas
+    peliculas_generos = set()
+
+    # Recorremos todas las películas del catálogo
+    for pelicula, generos in catalogo.items():
+
+        # Comprobamos si el género está entre los géneros de la película
+        if genero in generos:
+
+            # Agregamos la película al conjunto
+            peliculas_generos.add(pelicula)
+
+    # Mostramos todas las películas de ese género
+    print(f"{genero}: {peliculas_generos}")
