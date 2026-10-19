@@ -199,7 +199,7 @@ class ListaPacientes:
         return self._contar_criticos_rec(self.cabeza)
 
     # [PATRON_CONTAR_RECURSIVO]
-    def _contar_criticos_rec(self, nodo):# Hace el conteo oficiaal
+    def _contar_criticos_rec(self, nodo):# Hace el conteo oficial
         """
         Cuenta, desde "nodo" hasta el final, los pacientes críticos no atendidos.
 
